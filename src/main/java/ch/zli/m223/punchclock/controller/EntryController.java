@@ -31,15 +31,15 @@ public class EntryController {
         return entryService.createEntry(entry);
     }
 
-    @DeleteMapping(value = "/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteEntry(@PathVariable long id) {
-        entryService.deleteEntry(id);
-    }
-
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Entry updateEntry(@Valid @PathVariable Entry entry ) {
         return entryService.updateEntry(entry);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEntry(@PathVariable long id) {
+        entryService.deleteEntry(id);
     }
 }
