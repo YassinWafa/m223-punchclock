@@ -3,9 +3,11 @@ package ch.zli.m223.punchclock.controller;
 import ch.zli.m223.punchclock.domain.Entry;
 import ch.zli.m223.punchclock.service.EntryService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.ws.rs.Path;
 import java.util.List;
 
 @RestController
@@ -27,5 +29,17 @@ public class EntryController {
     @ResponseStatus(HttpStatus.CREATED)
     public Entry createEntry(@Valid @RequestBody Entry entry) {
         return entryService.createEntry(entry);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEntry(@PathVariable long id) {
+        entryService.deleteEntry(id);
+    }
+
+    @PutMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Entry updateEntry(@Valid @PathVariable Entry entry ) {
+        return entryService.updateEntry(entry);
     }
 }
