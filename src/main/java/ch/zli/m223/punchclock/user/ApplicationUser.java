@@ -14,6 +14,7 @@ public class ApplicationUser {
     private String username;
     private String password;
 
+
     public long getId() {
         return id;
     }
@@ -32,5 +33,9 @@ public class ApplicationUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public enum Role {
+        User, Admin
     }
 }

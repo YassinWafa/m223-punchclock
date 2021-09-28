@@ -24,4 +24,9 @@ public class UserController {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         applicationUserRepository.save(user);
     }
+
+    @PostMapping("/logout")
+    public void signOut(@RequestBody ApplicationUser user) {
+
+    }
 }
