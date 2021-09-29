@@ -1,7 +1,6 @@
 package ch.zli.m223.punchclock.user;
 
 import ch.zli.m223.punchclock.domain.Role;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -14,7 +13,6 @@ public class ApplicationUser {
     private String username;
     private String password;
 
-    @JsonIgnoreProperties
     @ManyToOne
     @JoinColumn(name = "role")
     private Role role;

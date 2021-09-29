@@ -19,7 +19,7 @@ public class UserController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     private RoleService roleService;
 
-    public UserController(ApplicationUserRepository applicationUserRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserController(ApplicationUserRepository applicationUserRepository, BCryptPasswordEncoder bCryptPasswordEncoder, RoleService roleService) {
         this.applicationUserRepository = applicationUserRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.roleService = roleService;
@@ -28,7 +28,7 @@ public class UserController {
     @PostMapping("/sign-up")
     public void signUp(@RequestBody ApplicationUser user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Optional<Role> role = roleService.findById(1);
+        Optional<Role> role = roleService.findById(1L);
         if (role.isPresent())
             user.setRole(role.get());
         applicationUserRepository.save(user);
