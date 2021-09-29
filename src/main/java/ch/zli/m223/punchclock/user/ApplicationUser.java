@@ -1,9 +1,9 @@
 package ch.zli.m223.punchclock.user;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import ch.zli.m223.punchclock.domain.Role;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 @Entity
 public class ApplicationUser {
@@ -14,6 +14,10 @@ public class ApplicationUser {
     private String username;
     private String password;
 
+    @JsonIgnoreProperties
+    @ManyToOne
+    @JoinColumn(name = "role")
+    private Role role;
 
     public long getId() {
         return id;
@@ -35,7 +39,11 @@ public class ApplicationUser {
         this.password = password;
     }
 
-    public enum Role {
-        User, Admin
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

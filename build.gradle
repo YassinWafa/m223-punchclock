@@ -26,6 +26,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jersey'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile "javax.xml.bind:jaxb-api:2.2.11"
+	compile "com.sun.xml.bind:jaxb-core:2.2.11"
+	compile "com.sun.xml.bind:jaxb-impl:2.2.11"
+	compile "javax.activation:activation:1.1.1"
 	implementation 'com.auth0:java-jwt:3.18.2'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	implementation 'com.h2database:h2'
