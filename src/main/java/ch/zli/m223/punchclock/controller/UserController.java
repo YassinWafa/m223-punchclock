@@ -24,7 +24,9 @@ public class UserController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.roleService = roleService;
     }
-
+    /** List of categories accessible via GET /categories.
+     * @author Yassin Wafa
+     */
     @PostMapping("/sign-up")
     public void signUp(@RequestBody ApplicationUser user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -33,7 +35,8 @@ public class UserController {
             user.setRole(role.get());
         applicationUserRepository.save(user);
     }
-
+    /** Mapping to log out a user. This is not fully implemented yet.
+     */
     @PostMapping("/logout")
     public void signOut(@RequestBody ApplicationUser user) {
 

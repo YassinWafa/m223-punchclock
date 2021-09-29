@@ -14,6 +14,9 @@ public class RoleController {
         this.roleRepository = roleRepository;
     }
 
+    /** Mapping to create a new role, accessible via POST /roles requiring name and id
+     * @author Yassin Wafa
+     */
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createRole(@RequestBody Role role) {
